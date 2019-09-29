@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material';
 import { Product } from '../interfaces/product';
 import { ShoppingListService } from '../services/shopping-list.service';
@@ -14,11 +14,11 @@ export class ShoppingListEditComponent implements OnInit {
   dataSource = new MatTableDataSource<Product>([]);
   productToAdd = new FormGroup(
     {
-      name: new FormControl(),
-      purchasedAt: new FormControl(),
+      name: new FormControl(null, [Validators.required]),
+      purchasedAt: new FormControl(null, [Validators.required]),
       store: new FormGroup({
-        name: new FormControl(),
-        url: new FormControl(),
+        name: new FormControl(null, [Validators.required]),
+        url: new FormControl(null, [Validators.required]),
       })
     },
   );
@@ -33,10 +33,9 @@ export class ShoppingListEditComponent implements OnInit {
     );
   }
 
-  productSave() {
-    console.log(this.productToAdd.value);
+  productSave(form: FormGroupDirective) {
     this.shoppingListService.addProduct(this.productToAdd.value);
-    this.productToAdd.reset();
+    form.resetForm();
   }
 
   removeProduct(product: Product) {

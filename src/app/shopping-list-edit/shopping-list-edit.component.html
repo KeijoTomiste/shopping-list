@@ -1,6 +1,6 @@
 <h1 class="mat-h1">Product list edit</h1>
 
-<form [formGroup]="productToAdd" (ngSubmit)="productSave()" class="mat-elevation-z8">
+<form #form="ngForm" [formGroup]="productToAdd" (ngSubmit)="productSave(form)" class="mat-elevation-z8">
   <mat-form-field>
     <input
       matInput
@@ -45,7 +45,7 @@
     </mat-form-field>
   </div>
 
-  <button mat-raised-button color="primary" type="submit">Add product</button>
+  <button mat-raised-button color="primary" type="submit" [disabled]="!productToAdd.valid">Add product</button>
 </form>
 
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
