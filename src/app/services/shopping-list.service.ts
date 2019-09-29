@@ -57,7 +57,7 @@ export class ShoppingListService {
   removeProduct(product: Product) {
     this.initiateProducts();
 
-    this.products.splice(this.products.indexOf(product, 1));
+    this.products.splice(this.products.indexOf(product), 1);
 
     this.pushProducts();
   }
