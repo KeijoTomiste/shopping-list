@@ -5,6 +5,11 @@
   align-items: center;
 }
 
+form {
+  background-color: #fff;
+  padding: 16px;
+}
+
 form,
 .inner-form {
   display: flex;
@@ -15,9 +20,5 @@ form,
 
 mat-form-field {
   width: 270px;
-}
-
-.align-right {
-  text-align: right;
 }
 
