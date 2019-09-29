@@ -1,3 +1,55 @@
+<h2>Product list edit</h2>
+
+<form [formGroup]="productToAdd" (ngSubmit)="productSave()">
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="Name"
+      type="text"
+      formControlName="name"
+      name="name"
+    >
+  </mat-form-field>
+
+  <mat-form-field>
+    <input
+      matInput
+      [matDatepicker]="picker"
+      placeholder="Purchased at"
+      formControlName="purchasedAt"
+      name="Purchased at"
+    >
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <div class="inner-form" formGroupName="store">
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Store name"
+        type="text"
+        formControlName="name"
+        name="Store name"
+      >
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Store url"
+        type="text"
+        formControlName="url"
+        name="Store url"
+      >
+    </mat-form-field>
+  </div>
+
+  <div class="align-right">
+    <button mat-raised-button color="primary" type="submit">Add product</button>
+  </div>
+</form>
+
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef> Name </th>
@@ -21,7 +73,7 @@
         Sunday, Feburary 14th 2010, 15:25
         use dddd, MMMM Do YYYY, hh:mm
       -->
-      {{element.purchasedAt | amFromUnix | amDateFormat: 'LLLL'}}
+      {{element.purchasedAt | amDateFormat: 'LLLL'}}
     </td>
   </ng-container>
 

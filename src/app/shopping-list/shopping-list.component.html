@@ -1,3 +1,5 @@
+<h2>Product history</h2>
+
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef> Name </th>
@@ -21,7 +23,7 @@
         Sunday, Feburary 14th 2010, 15:25
         use dddd, MMMM Do YYYY, hh:mm
       -->
-      {{element.purchasedAt | amFromUnix | amDateFormat: 'LLLL'}}
+      {{element.purchasedAt | amDateFormat: 'LLLL'}}
     </td>
   </ng-container>
 
