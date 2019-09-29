@@ -20,7 +20,7 @@ export class ShoppingListService {
     },
     {
       name: 'Product 2',
-      purchasedAt: 1569760019000,
+      purchasedAt: 1517760019000,
       store: {
         name: 'Store 2',
         url: 'https://placekitten.com/200/300',
@@ -28,7 +28,7 @@ export class ShoppingListService {
     },
     {
       name: 'Product 3',
-      purchasedAt: 1569760019000,
+      purchasedAt: 1559760019000,
       store: {
         name: 'Store 3',
         url: 'https://placekitten.com/200/300',

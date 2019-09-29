@@ -1,5 +1,51 @@
 <h2>Product history</h2>
 
+<form [formGroup]="filters">
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="Search name"
+      type="text"
+      name="name"
+      formControlName="name"
+    >
+  </mat-form-field>
+
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="Search store"
+      type="text"
+      name="name"
+      formControlName="storeName"
+    >
+  </mat-form-field>
+
+  <mat-form-field>
+    <input
+      matInput
+      [matDatepicker]="beforePicker"
+      placeholder="Purchased before"
+      name="Purchased before"
+      formControlName="purchasedBefore"
+    >
+    <mat-datepicker-toggle matSuffix [for]="beforePicker"></mat-datepicker-toggle>
+    <mat-datepicker #beforePicker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input
+      matInput
+      [matDatepicker]="afterPicker"
+      placeholder="Purchased after"
+      name="Purchased after"
+      formControlName="purchasedAfter"
+    >
+    <mat-datepicker-toggle matSuffix [for]="afterPicker"></mat-datepicker-toggle>
+    <mat-datepicker #afterPicker></mat-datepicker>
+  </mat-form-field>
+</form>
+
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef> Name </th>
